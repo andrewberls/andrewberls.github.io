@@ -1,0 +1,53 @@
+---
+layout: default
+navtab: 'blog'
+---
+
+<div class="container blog-container">
+  {% include bio.html %}
+
+  <div class="row">
+    <div class="span-12 offset-2">
+      <div class="post">
+        <div class="post-title-container">
+          <h2 class="post-title">{{ page.title }}</h2>
+          <p class="post-date">{{ page.date | date_to_string }}</p>
+        </div>
+
+        <div class="post-content">
+          {{ content }}
+
+          {% assign tagcount = page.tags | size %}
+          {% if tagcount > 0 %}
+            <div style="margin-top: 15px">
+              <span style="display:inline-block;margin-right:5px;">Tags:</span>
+              {% for tag in page.tags %}
+                <a href="/blog/tags" class="tag">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+      </div><!-- .post -->
+
+      {% include mailchimp_signup.html %}
+
+      <a href="/blog" class="btn btn-blue back">&laquo; Back to Blog</a>
+
+    </div><!-- .span-11 -->
+  </div><!-- .row -->
+</div><!-- .blog-container -->
+
+<div class="comments-container">
+  <div class="container">
+
+    <div class="row">
+      <div class="span-10 offset-4">
+        {% include disqus.html %}
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+email: andrew.berls@gmail.com
+description: >-
+  A blog on software development by Andrew Berls
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www.andrewberls.com"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+excerpt_separator: <break />
+
+paginate: 5
+paginate_path: "/blog/page:num"
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

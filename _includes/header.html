@@ -1,0 +1,31 @@
+<header class="down">
+  <nav>
+    <div class="container">
+      <div class="row">
+        <div class="span-16">
+          <ul>
+            {% if layout.navtab == "work" %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/#portfolio">Work</a>
+            </li>
+
+            {% if layout.navtab == "blog" %}
+              <li class="active">
+            {% else %}
+              <li>
+            {% endif %}
+                <a href="/blog">Blog</a>
+              </li>
+
+            <li class=''>
+              <a href="/#contact">Contact</a>
+            </li>
+          </ul>
+        </div><!-- .span-16 -->
+      </div>
+    </div>
+  </nav>
+</header>

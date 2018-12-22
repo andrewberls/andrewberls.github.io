@@ -1,0 +1,82 @@
+header {
+  @include clearfix;
+  position: fixed;
+  margin-bottom: 40px;
+  top: 0;
+  width: 100%;
+
+  @include mobile { text-align: center; }
+
+  &.down {
+    @include box-shadow(0, 1px, 10px, -2px, darken(#eee, 20%));
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 500ms ease-out;
+    z-index: 999;
+
+    nav {
+      background-color: white;
+      padding-top: 10px;
+    }
+  }
+
+  nav {
+    @include clearfix;
+    padding-top: 30px;
+
+    @include mobile { padding-top: 10px; }
+
+    ul {
+      float: right;
+      display: inline-block;
+
+      @include mobile {
+        float: none;
+        margin: 0 auto;
+      }
+    }
+
+    li {
+      float: left;
+      margin-right: 15px;
+
+      &:last-of-type { margin-right: 0; }
+
+      &.active a {
+        border-bottom: 2px solid $light-blue;
+        color: $blue;
+      }
+    }
+
+    a {
+      border-bottom: 2px solid white;
+      color: $gray-text;
+      display: inline-block;
+      font-family: 'Open Sans', $mainFontFamily;
+      font-size: 1.1em;
+      padding: 10px 10px 8px;
+      text-transform: uppercase;
+
+      &:hover {
+        border-bottom: 2px solid $light-blue;
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: #222;
+  color: lighten(#2c2c2c, 30);
+  padding: 15px 0;
+  text-align: right;
+
+  a {
+    color: inherit;
+    &:hover { color: $blue; }
+  }
+
+  @include mobile { padding: 5px; }
+}

@@ -1,0 +1,288 @@
+@import 'blog/disqus';
+@import 'blog/mailchimp';
+
+.blog-container {
+  margin-top: 90px !important;
+  position: relative;
+}
+
+.post {
+  @extend %whitebox;
+  border: 0;
+  font-family: 'Lora', $mainFontFamily;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding: 0;
+  word-wrap: break-word;
+
+  .post-title-container {
+    margin-bottom: 15px;
+    padding: 10px 15px 0px;
+    text-align: center;
+
+    @include mobile {
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  .post-title {
+    color: $blog-header;
+    font-family: 'Open Sans', $mainFontFamily;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 3px;
+
+    a {
+      color: inherit;
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .post-date {
+    color: darken($gray-border, 10);
+    margin-bottom: 0;
+  }
+
+  .post-content {
+    @include clearfix;
+    font-size: 20px;
+    padding: 15px 15px 10px;
+  }
+
+  h2,h3,h4,h5,h6 {
+    color: $blog-header;
+    font-weight: bold;
+  }
+
+  h2 { font-size: 21px; }
+
+  h3 { font-size: 19px; }
+
+  h5 {
+    // Legacy headers
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    &.list-head { margin-bottom: 5px; }
+  }
+
+  em { font-style: italic; }
+  .bold { font-weight: bold; }
+
+  .subtle {
+    color: $gray-text-light;
+    font-size: 17px;
+    font-style: italic;
+    margin-bottom: 25px;
+  }
+
+  blockquote {
+    border-left: 4px solid $blue;
+    color: $gray-text-light;
+    margin: 2em 0 2em -1.5em;
+    padding-left: 1.5em;
+
+    p {
+      font-family: 'Open Sans', $mainFontFamily;
+      font-size: 22px;
+      font-weight: 300;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    margin-bottom: 15px;
+
+    li { margin-left: 20px; }
+  }
+
+  code,
+  pre {
+    color: $gray-header;
+    font-family: $codeFontFamily;
+  }
+
+  code {
+    // Inline code snippets
+    @include border-radius(2px);
+    background-color: darken($gray-light, 3);
+    border: 1px solid $gray-border;
+    font-size: 16px;
+    color: #404040;
+    padding: 1px 2px;
+
+    a { color: lighten($blue, 8); }
+  }
+
+  pre {
+    // Code blocks
+    @include border-radius(2px);
+    background-color: #f6f6f6;
+    border: 1px solid #ddd !important;
+    line-height: 1.4;
+    margin-bottom: 35px;
+    padding: 10px 15px !important;
+
+    .label,
+    .comment { color: #797979; }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    code {
+      // Undo extra code stylings in markdown-fenced blocks
+      background: none;
+      border: none;
+      font-size: 14px;
+      padding: 0;
+    }
+  }
+
+  img {
+    border: 1px solid $gray-border;
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 95%;
+    padding: 5px;
+  }
+
+  .img-caption {
+    color: darken($gray-border, 20);
+    font-size: 0.9em;
+    margin-top: -10px;
+    text-align: center;
+  }
+
+  .tag {
+    @include border-radius(2px);
+    background-color: #E3E3E3;
+    color: darken(#6B6B6B, 10);
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 2px 8px;
+  }
+
+  .twitter-share-button {
+    float: right;
+    margin: 2px 0px 5px;
+  }
+}
+
+// Listings on index page
+.post-teaser {
+  .post-title-container { margin-bottom: 0; }
+  .post-content { padding-top: 0px; }
+
+  border-bottom: 1px dashed lighten($light-border, 2);
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+
+  &:last-of-type { border-bottom: 0; }
+}
+
+.read-more {
+  font-size: 19px;
+  padding: 12px 45px;
+  margin-bottom: 5px;
+}
+
+.back {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  padding: 8px;
+
+  @include mobile { margin-left: 10px; }
+}
+
+.bio-container {
+  font-weight: 300;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  .avatar {
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #d1d1d1;
+    display: block;
+    margin: 0 auto 15px;
+    transition: box-shadow 0.2s ease-out;
+
+    &:hover { box-shadow: 0px 0px 10px lighten($blue, 30); }
+  }
+
+  p {
+    //color: red;
+    font-size: 1.3em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  // TODO: make icons way smaller
+  .social { @include clearfix; }
+
+  .icon {
+    background-image: url('/assets/social.png');
+    float: left;
+    margin-right: 45px;
+    height: 64px;
+    width: 64px;
+
+    @media (max-width: 790px) { margin-right: 10px; }
+  }
+
+  .twitter-icon  { background-position: 0px 64px; }
+  .github-icon   { background-position: 0px 192px; }
+  .rss-icon      { background-position: 0px 0px; }
+
+  @include mobile { padding: 0 10px 20px; }
+}
+
+.pagination {
+  font-size: 1.1em;
+  margin: 30px auto;
+  text-align: center;
+
+  a, em, span {
+    @include border-radius(2px);
+    display: inline-block;
+    border: 1px solid $light-border;
+    padding: 8px 13px;
+  }
+
+  a {
+    background-color: white;
+
+    &:hover {
+      background-color: $blue;
+      border-color: darken($blue, 2);
+      color: white;
+      text-decoration: none;
+    }
+
+  }
+
+  // Current
+  em {
+    background-color: $blue;
+    border-color: darken($blue, 2);
+    color: white;
+    font-weight: bold;
+  }
+
+  // Disabled
+  span {
+    background-color: #e7e7e7;
+    color: lighten($gray-text, 35);
+  }
+}

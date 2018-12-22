@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<section class="intro-container">
+  <h1>
+    Hello! My name is <span class="highlight">Andrew Berls</span>
+    <span class="ampersand">&amp;</span> I
+    <span class="greeting">develop software</span>.
+  </h1>
+
+  <div class="scroll-icon-container">
+    <a href="#work" class="fa fa-angle-down scroll"></a>
+  </div>
+</section>
+
+<section class="sutro-container" id="work">
+  <aside class="sutro-stripe"></aside>
+
+  <div class="container">
+    <div class="row">
+      <div class="span-12 offset-2">
+
+        <h1>Work</h1>
+        <p>
+          I'm currently a software engineer working on <a href="https://squareup.com/capital" target="_blank">Square Capital</a>, helping businesses get funds to grow.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="latest-post-container">
+  {% for post in site.posts limit:1 %}
+    <h2>Latest blog post: <a href="{{ post.url }}">{{ post.title }}</a></h2>
+  {% endfor %}
+</section>
+
+<section class="contact-container" id="contact">
+  <h2>Get in Touch</h2>
+
+  <p class="contact">
+    Send me an email at <a href="mailto:{{ site.email }}" target="_blank">{{ site.email }}</a> or
+    say hello on <a href="http://www.linkedin.com/pub/andrew-berls/2b/1a6/aa8/">LinkedIn</a>!
+  </p>
+</section>
