@@ -2,10 +2,10 @@
 layout: post
 title: "Introducing Overseer - data pipeline management in Clojure (Pt. 2)"
 date: "2016-04-14"
-permalink: /blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-2
+permalink: /blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-2/index.html
 ---
 
-In the [last post](/blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-1), we introduced the Overseer workflow engine that ran Framed, and saw how to use plain Clojure data structures and functions to wire up an example pipeline. In this post, we'll talk about simplicity and how we were able to leverage Overseer and a variety of techniques to do away with Hadoop and other heavyweight processing frameworks.
+xIn the [last post](/blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-1), we introduced the Overseer workflow engine that ran Framed, and saw how to use plain Clojure data structures and functions to wire up an example pipeline. In this post, we'll talk about simplicity and how we were able to leverage Overseer and a variety of techniques to do away with Hadoop and other heavyweight processing frameworks.
 
 <break />
 
@@ -27,7 +27,7 @@ Overseer doesn't have any opinions on what your jobs should do or return. Howeve
 
 Most of our jobs would return a sequence of these artifacts, and we had a single shared generic piece of code that would actually go upload all the artifacts to S3. This is **way** more important than it might seem at first glance! It completely decouples the processing and computation steps from the actual side effects of persisting the results. Our job handlers became pure functions, for some sense of the word; they derive the required inputs they need to grab based on the job maps they're passed, then they compute a result, and return a *description* of the output value and where to put it, without mutating the state of the outside world. This is trivial to unit test like any other function! As a bonus, we only have to write and verify a single shared persistence function.
 
-We used artifacts primarily for S3, but it's easy to imagine how the idea could be extended to broad applicability: rows to be saved in MySQL, facts in [Datomic](http://www.datomic.com/), or anything else you like. 
+We used artifacts primarily for S3, but it's easy to imagine how the idea could be extended to broad applicability: rows to be saved in MySQL, facts in [Datomic](http://www.datomic.com/), or anything else you like.
 
 This is like a poor-man's [effect system](https://en.wikipedia.org/wiki/Effect_system); using simple data structures we have a first-class description of side effects, and can verify and validate them all we like before executing them. This had a tremendous impact for us, and I have a feeling it will shape lots of code in my future.
 
