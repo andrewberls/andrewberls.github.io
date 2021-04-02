@@ -2,10 +2,10 @@
 layout: post
 title: "Introducing Overseer - data pipeline management in Clojure (Pt. 2)"
 date: "2016-04-14"
-permalink: /blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-2/index.html
+permalink: /blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-2
 ---
 
-xIn the [last post](/blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-1), we introduced the Overseer workflow engine that ran Framed, and saw how to use plain Clojure data structures and functions to wire up an example pipeline. In this post, we'll talk about simplicity and how we were able to leverage Overseer and a variety of techniques to do away with Hadoop and other heavyweight processing frameworks.
+In the [last post](/blog/post/introducing-overseer--data-pipeline-management-in-clojure-pt-1), we introduced the Overseer workflow engine that ran Framed, and saw how to use plain Clojure data structures and functions to wire up an example pipeline. In this post, we'll talk about simplicity and how we were able to leverage Overseer and a variety of techniques to do away with Hadoop and other heavyweight processing frameworks.
 
 <break />
 
